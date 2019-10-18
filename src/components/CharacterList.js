@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
 
 const CharacterSection = styled.section`
   display: flex;
@@ -14,6 +15,7 @@ const CharacterSection = styled.section`
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [characterData, setCharacterData] = useState();
+  const [dataToDisplay, setDataToDisplay] = useState();
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -27,14 +29,25 @@ export default function CharacterList() {
       .catch(err => console.error(err));
   }, []);
 
-  if (!characterData) {
+  useEffect(() => {
+    characterData && setDataToDisplay(characterData.results);
+  }, [characterData]);
+
+  if (!dataToDisplay) {
     return <div>Loading...</div>;
   }
+  console.log(dataToDisplay);
   return (
-    <CharacterSection className="character-list">
-      {characterData.results.map((character, index) => {
-        return <CharacterCard character={character} key={index} />;
-      })}
-    </CharacterSection>
+    <>
+      <SearchForm
+        data={characterData.results}
+        setDataToDisplay={setDataToDisplay}
+      />
+      <CharacterSection className="character-list">
+        {dataToDisplay.map((character, index) => {
+          return <CharacterCard character={character} key={index} />;
+        })}
+      </CharacterSection>
+    </>
   );
 }
