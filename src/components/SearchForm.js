@@ -13,7 +13,7 @@ export default function SearchForm(props) {
       character.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(results);
-  }, [searchTerm, dataToSearch, setSearchResults]);
+  }, [searchTerm, setSearchResults, dataToSearch]);
 
   return (
     <section className="search-form">
