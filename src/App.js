@@ -11,11 +11,19 @@ const Nav = styled.nav`
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
+`;
+
+const StyledMain = styled.main`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function App() {
   return (
-    <main>
+    <StyledMain>
       <Header />
       <Nav>
         <NavLink to="/">Home</NavLink>
@@ -28,6 +36,6 @@ export default function App() {
         />
         <Route path="/" component={WelcomePage} />
       </Switch>
-    </main>
+    </StyledMain>
   );
 }

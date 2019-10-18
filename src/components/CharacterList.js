@@ -7,9 +7,8 @@ import SearchForm from "./SearchForm";
 
 const CharacterSection = styled.section`
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 `;
 
 export default function CharacterList() {
