@@ -14,7 +14,7 @@ export default function SearchForm(props) {
     );
     console.log(results);
     setSearchResults(results);
-  }, [searchTerm]);
+  }, [searchTerm, setSearchResults, dataToSearch]);
 
   return (
     <section className="search-form">
