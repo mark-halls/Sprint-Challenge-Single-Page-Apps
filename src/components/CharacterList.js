@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
+
+const CharacterSection = styled.section`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -23,10 +31,10 @@ export default function CharacterList() {
     return <div>Loading...</div>;
   }
   return (
-    <section className="character-list">
+    <CharacterSection className="character-list">
       {characterData.results.map((character, index) => {
         return <CharacterCard character={character} key={index} />;
       })}
-    </section>
+    </CharacterSection>
   );
 }
