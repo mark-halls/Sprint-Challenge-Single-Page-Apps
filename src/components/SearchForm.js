@@ -12,7 +12,6 @@ export default function SearchForm(props) {
     const results = dataToSearch.filter(character =>
       character.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    console.log(results);
     setSearchResults(results);
   }, [searchTerm, setSearchResults, dataToSearch]);
 

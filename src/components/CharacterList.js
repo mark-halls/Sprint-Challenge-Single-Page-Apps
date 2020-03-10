@@ -22,7 +22,6 @@ export default function CharacterList() {
     axios
       .get("https://rickandmortyapi.com/api/character/")
       .then(res => {
-        console.log(res.data);
         setCharacterData(res.data);
       })
       .catch(err => console.error(err));
@@ -35,7 +34,6 @@ export default function CharacterList() {
   if (!dataToDisplay) {
     return <div>Loading...</div>;
   }
-  console.log(dataToDisplay);
   return (
     <>
       <SearchForm
